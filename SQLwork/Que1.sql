@@ -40,6 +40,58 @@ VALUES
   (5, "Emma", "emma.wilson@gmail.com", "5550155", 5),
   (6, "Amelia", "amelia.davis@gmail.com", "5550186", 6),
   (7, "Henry", "henry.evans@gmail.com", "555-0167", 7);
+  
+  
+-- 1. Create Instructor_data Table
+CREATE TABLE Instructor_data (	
+    InstructorId INT NOT NULL PRIMARY KEY,
+    InstructorName VARCHAR(50) NOT NULL,
+    Email VARCHAR(50),
+    CourseId INT,
+    FOREIGN KEY (CourseId) REFERENCES Course_data(Course_Id)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE
+);
+
+-- 2. Create Enrollment_data Table
+CREATE TABLE Enrollment_data (
+    EnrollmentId INT NOT NULL PRIMARY KEY,
+    StudentId INT NOT NULL,
+    CourseId INT NOT NULL,
+    EnrollmentDate DATE NOT NULL,
+    Grade VARCHAR(5),
+    FOREIGN KEY (StudentId) REFERENCES Student_data(StudentId)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (CourseId) REFERENCES Course_data(Course_Id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+-- 3. Insert Data into Instructor_data
+INSERT INTO Instructor_data (InstructorId, InstructorName, Email, CourseId)
+VALUES
+    (101, 'Dr. Aris Thorne', 'athorne@clg.edu', 1),
+    (102, 'Prof. Elena Rostova', 'erostova@clg.edu', 2),
+    (103, 'Dr. Marcus Vance', 'mvance@clg.edu', 3),
+    (104, 'Prof. Sarah Lin', 'slin@clg.edu', 4),
+    (105, 'Dr. David Miller', 'dmiller@clg.edu', 5);
+
+-- 4. Insert Data into Enrollment_data
+INSERT INTO Enrollment_data (EnrollmentId, StudentId, CourseId, EnrollmentDate, Grade)
+VALUES
+    (1, 1, 1, '2026-01-15', 'A'),
+    (2, 1, 2, '2026-01-16', 'B+'),
+    (3, 2, 2, '2026-01-15', 'A+'),
+    (4, 3, 3, '2026-01-17', 'A'),
+    (5, 4, 4, '2026-01-18', 'B'),
+    (6, 5, 5, '2026-01-19', 'A+'),
+    (7, 6, 6, '2026-01-20', 'B');
+
+-- Verification Queries
+SELECT * FROM Instructor_data;
+SELECT * FROM Enrollment_data;
+
 
 -- Modifying Table
 
@@ -130,13 +182,3 @@ SELECT *
 FROM Student_data
 NATURAL JOIN Course_data;
 ALTER TABLE Course_data RENAME COLUMN CourseId TO Course_Id;
-
-/*
-DML 
-DDL
-Constraints
-SELECT and WHERE
-*/
-
-
-
