@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Cards</title>
+
+    <style>
+      /* General Styling */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 30px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      /* Task A: Product Cards using Flexbox */
+      .product-container {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+      }
+
+      .product-card {
+        background-color: white;
+        width: 250px;
+        padding: 15px;
+        text-align: center;
+        border-radius: 15px;
+
+        /* Task B: Box Shadow */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+        transition: 0.3s ease;
+      }
+
+      /* Task B: Hover Effect */
+      .product-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .product-card h2 {
+        margin: 15px 0;
+        font-size: 20px;
+      }
+
+      .price {
+        color: green;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .product-card button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .product-card button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Task C: Separate Yellow Div */
+      .info-section {
+        background-color: yellow;
+        border-radius: 15px;
+        padding: 25px;
+        margin: 50px auto;
+        max-width: 700px;
+        text-align: center;
+      }
+
+      .info-section img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .info-section h2 {
+        color: blue;
+        margin: 15px 0;
+      }
+
+      .info-section p {
+        color: red;
+        font-size: 16px;
+      }
+
+      /* Task D: Responsive Media Query */
+      @media screen and (max-width: 600px) {
+        .product-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .product-card {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        body {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Our Products</h1>
+
+    <!-- Task A: Four Product Cards -->
+    <div class="product-container">
+      <div class="product-card">
+        <img
+          src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"
+          alt="Headphones"
+        />
+        <h2>Headphones</h2>
+        <p class="price">₹1,499</p>
+        <button>Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img
+          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500"
+          alt="Watch"
+        />
+        <h2>Smart Watch</h2>
+        <p class="price">₹2,499</p>
+        <button>Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img
+          src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"
+          alt="Wireless Headphones"
+        />
+        <h2>Wireless Headphones</h2>
+        <p class="price">₹1,999</p>
+        <button>Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"
+          alt="Shoes"
+        />
+        <h2>Sports Shoes</h2>
+        <p class="price">₹3,499</p>
+        <button>Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Task C: Yellow Background Section -->
+    <div class="info-section">
+      <img
+        src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=500"
+        alt="Workspace"
+      />
+
+      <h2>Welcome to Our Store</h2>
+
+      <p>
+        We provide high-quality products at affordable prices. Explore our
+        collection and find your favourite products.
+      </p>
+    </div>
+  </body>
+</html>
